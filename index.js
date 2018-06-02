@@ -2,10 +2,12 @@ var $tbody = document.querySelector("tbody");
 var $button = document.querySelector("#btnWhen");
 var $input = document.querySelector("#inputWhen");
 
-var UFOData = dataSet
+var UFOData = dataSet;
+
+
 
 function renderTable() {
-    $tbody.innerHTML - "";
+    $tbody.innerHTML = "";
 
     for (var i =0; i < UFOData.length; i++){
         var $row = $tbody.insertRow(i)
@@ -31,9 +33,10 @@ $button.addEventListener("click", handleSearchButtonClick);
 
 function handleSearchButtonClick(){
     var filterDate = $input.value;
-
-    UFOData = data.filter(function(observation){
+    UFOData = dataSet.filter(function(dataSet) {
         var originalDate = dataSet.datetime;
+        console.log(filterDate)
+        console.log(originalDate)
         return originalDate === filterDate;
     });
     renderTable();
